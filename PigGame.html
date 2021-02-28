@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="PigGame.css">
+</head>
+
+<body>
+    <div class="contrainer">
+        <div class="boxLeft">
+            <h1 class="player1">Player 1</h1>
+            <h1 class="score1">score</h1>
+            <h1 class="count1">0</h1>
+
+            <div class="boxcur1">
+                <p class="text1">Current : </p>
+                <p class="currentScore1">0</p>
+            </div>
+
+        </div>
+        <div class="boxCenter">
+            <h1 class="ran">0</h1>
+        </div>
+        <div class="boxRight">
+            <h1 class="player2">Player 2</h1>
+            <h1 class="score2">score</h1>
+            <h1 class="count2">0</h1>
+
+            <div class="boxcur2">
+                <p class="text2">Current : </p>
+                <p class="currentScore2">0</p>
+            </div>
+
+        </div>
+    </div>
+    <div class="endGame">
+        <h1 class="win"></h1>
+    </div>
+    <footer>
+        <div class=totalButton>
+            <button id="Roll">ROLL DICE PLAYER1</button>
+            <button id="Hold">HOLD</button>
+            <button id="NewGame">NEW GAME</button>
+        </div>
+    </footer>
+
+    <script>
+
+        let score1 = 0;
+        let score2 = 0;
+        let sum;
+        let switchPlayer
+        let totalScore1 = 0;
+        let totalScore2 = 0;
+        let status = '';
+        let n1 = 0;
+        let n2 = 0;
+        let countScore1;
+        let countScore2;
+        let keepScore1 = 0;
+        let keepScore2 = 0;
+        let set1 = [];
+        let set2 = [];
+        let current1;
+        let current2;
+        let c1 = 0;
+        let c2 = 0;
+
+        let roll = document.getElementById('Roll');
+        roll.addEventListener('click', clickRoll);
+
+        let hold = document.getElementById('Hold');
+        hold.addEventListener('click', clickHold);
+
+        let newGame = document.getElementById('NewGame');
+        newGame.addEventListener('click', clickNewGame);
+
+        // ===========================================================================
+
+        function clickRoll() {
+
+            console.log('clickRoll');
+            ranClick = document.querySelector(".ran");
+            ranClick.innerHTML = Math.floor(Math.random() * 6) + 1;
+            sum = +ranClick.innerHTML;
+
+            if (roll.innerHTML === 'ROLL DICE PLAYER1') {
+                player1Score(sum);
+                if (sum === 1) {
+                    roll.innerHTML = 'ROLL DICE PLAYER2'
+                    console.log(status);
+                }
+            }
+            else if (roll.innerHTML === 'ROLL DICE PLAYER2') {
+                player2Score(sum)
+                if (sum === 1) {
+                    roll.innerHTML = 'ROLL DICE PLAYER1'
+                    console.log(status);
+                }
+            }
+        }
+
+
+
+        function clickHold() {
+
+            console.log('clickHold');
+
+            if (+ranClick.innerHTML === 0 || +ranClick.innerHTML === 1) {
+                return 0;
+            }
+
+            if (roll.innerHTML === 'ROLL DICE PLAYER1') {
+                if (n1 == 0) {
+                    roll.innerHTML = 'ROLL DICE PLAYER2'
+                    ranClick.innerHTML = 0;
+                    countScore1.innerHTML = set1[n1];
+                    if (+countScore1.innerHTML >= 100) {
+                        let win1 = document.querySelector('.win');
+                        win1.innerHTML = "PLAYER1 WIN !!!";
+                        alert("PLAYER 1 WIN !!!");
+                        document.getElementById("Roll").style.display = "none";
+                        document.getElementById("Hold").style.display = "none";
+
+                    }
+                    current1.innerHTML = 0;
+                    totalScore1 = 0;
+                    n1++;
+                    console.log("switchPlayer2")
+                }
+                else if (n1 >= 1) {
+                    roll.innerHTML = 'ROLL DICE PLAYER2'
+                    ranClick.innerHTML = 0;
+                    countScore1.innerHTML = set1[n1];
+                    if (+countScore1.innerHTML >= 100) {
+                        let win1 = document.querySelector('.win');
+                        win1.innerHTML = "PLAYER 1 WIN !!!";
+                        alert("PLAYER 1 WIN !!!");
+                        document.getElementById("Roll").style.display = "none";
+                        document.getElementById("Hold").style.display = "none";
+
+                    }
+                    current1.innerHTML = 0;
+                    totalScore1 = 0;
+                    n1++;
+                    console.log("switchPlayer2")
+                }
+                c1++
+
+            }
+
+            else if (roll.innerHTML === 'ROLL DICE PLAYER2') {
+                if (n2 == 0) {
+                    roll.innerHTML = 'ROLL DICE PLAYER1'
+                    ranClick.innerHTML = 0;
+                    countScore2.innerHTML = set2[n2];
+                    if (+countScore2.innerHTML >= 100) {
+                        let win2 = document.querySelector('.win');
+                        win2.innerHTML = "PLAYER 2 WIN !!!"
+                        alert("PLAYER2 WIN !!!");
+                        document.getElementById("Roll").style.display = "none";
+                        document.getElementById("Hold").style.display = "none";
+
+                    }
+                    current2.innerHTML = 0;
+                    totalScore2 = 0;
+                    n2++
+                    console.log("switchPlayer1")
+                }
+                else if (n2 >= 1) {
+                    roll.innerHTML = 'ROLL DICE PLAYER1'
+                    ranClick.innerHTML = 0;
+                    countScore2.innerHTML = set2[n2];
+                    if (+countScore2.innerHTML >= 100) {
+                        let win2 = document.querySelector('.win');
+                        win2.innerHTML = "PLAYER 2 WIN !!!"
+                        alert("PLAYER2 WIN !!!");
+                        document.getElementById("Roll").style.display = "none";
+                        document.getElementById("Hold").style.display = "none";
+
+                    }
+                    current2.innerHTML = 0;
+                    totalScore2 = 0;
+                    n2++;
+                    console.log("switchPlayer1")
+                }
+                c2++
+            }
+
+        }
+
+        // ============================================================================
+
+        // =============================================================================
+
+        function player1Score(a) {
+
+            if (a != 1) {
+                if (c1 == 0) {
+                    score1 = a;
+                    keepScore1 = keepScore1 + score1;
+                    set1[n1] = keepScore1;
+                    totalScore1 = totalScore1 + score1
+                    current1 = document.querySelector(".currentScore1")
+                    current1.innerHTML = totalScore1;
+                    countScore1 = document.querySelector('.count1');
+                    console.log(set1, "set1")
+                    if (a == 1 || countScore1.innerHTML != set1[n1] + keepScore1) {
+                        c1 = 0;
+                    }
+                    else if (a != 1) {
+                        c1 = 1;
+                    }
+                }
+                else if (c1 === 1) {
+                    score1 = a;
+                    keepScore1 = keepScore1 + score1;
+                    set1[n1] = set1[n1 - 1] + score1;
+                    totalScore1 = totalScore1 + score1
+                    current1 = document.querySelector(".currentScore1")
+                    current1.innerHTML = totalScore1;
+                    countScore1 = document.querySelector('.count1');
+                    set1[n1] = +current1.innerHTML + set1[n1 - 1];
+                    console.log(set1, "set1")
+                    if (a == 1 || countScore1.innerHTML != set1[n1] + keepScore1) {
+                        c1 = 1
+                    }
+                    else if (a != 1) {
+                        c1 = 2;
+                    }
+                }
+                else if (c1 === 2) {
+                    score1 = a;
+                    keepScore1 = keepScore1 + score1;
+                    set1[n1] = set1[n1 - 1] + score1;
+                    totalScore1 = totalScore1 + score1
+                    current1 = document.querySelector(".currentScore1")
+                    current1.innerHTML = totalScore1;
+                    countScore1 = document.querySelector('.count1');
+                    set1[n1] = +current1.innerHTML + set1[n1 - 1];
+                    console.log(set1, "set1")
+                    set1[n1 + 1] = 0;
+                    if (a == 1 || countScore1.innerHTML != set1[n1] + keepScore1) {
+                        c1 = 2;
+                    }
+                    else if (a != 1) {
+                        c1 = 3;
+                    }
+
+                }
+                else if (c1 > 2) {
+                    score1 = a;
+                    keepScore1 = keepScore1 + score1;
+                    set1[n1] = set1[n1 - 1] + score1;
+                    totalScore1 = totalScore1 + score1
+                    current1 = document.querySelector(".currentScore1")
+                    current1.innerHTML = totalScore1;
+                    countScore1 = document.querySelector('.count1');
+                    set1[n1] = +current1.innerHTML + set1[n1 - 1];
+                    console.log(set1, "set1")
+                    if (a == 1 || countScore1.innerHTML != set1[n1] + keepScore1) {
+                        c1 = 3;
+                    }
+                    else if (a != 1) {
+                        c1 = 1;
+                    }
+
+                }
+
+            }
+            else {
+
+                if (n1 == 0) {
+                    totalScore1 = 0;
+                    score1 = 0;
+                    keepScore1 = 0;
+                    set1[n1] = 0;
+                    current1.innerHTML = 0;
+                    countScore1.innerHTML = set1[n1];
+                }
+                else if (n1 >= 1) {
+
+                    totalScore1 = 0;
+                    keepScore1 = 0;
+                    current1.innerHTML = 0;
+                    set1[n1] = set1[n1 - 1];
+                    countScore1.innerHTML = set1[n1];
+                    console.log(set1, "a = 1")
+                }
+
+                console.log("switchPlayer2")
+            }
+
+        }
+
+        function player2Score(b) {
+
+            if (b != 1) {
+                if (c2 == 0) {
+                    score2 = b;
+                    keepScore2 = keepScore2 + score2;
+                    set2[n2] = keepScore2
+                    totalScore2 = totalScore2 + score2;
+                    current2 = document.querySelector(".currentScore2")
+                    current2.innerHTML = totalScore2;
+                    countScore2 = document.querySelector('.count2');
+                    console.log(set2, "set2")
+                    if (b == 1 || countScore2.innerHTML != set2[n2] + score2) {
+                        c2 = 0;
+                    }
+                    else if (b != 1) {
+                        c2 = 1;
+                    }
+
+                }
+                else if (c2 === 1) {
+                    score2 = b;
+                    keepScore2 = keepScore2 + keepScore2;
+                    set2[n2] = set2[n2 - 1] + score2;
+                    totalScore2 = totalScore2 + score2;
+                    current2 = document.querySelector(".currentScore2")
+                    current2.innerHTML = totalScore2;
+                    countScore2 = document.querySelector('.count2');
+                    set2[n2] = +current2.innerHTML + set2[n2 - 1];
+                    console.log(set2, "set2")
+                    if (b == 1 || countScore2.innerHTML != set2[n2] + keepScore2) {
+                        c2 = 1
+                    }
+                    else if (b != 1) {
+                        c2 = 2;
+                    }
+
+                }
+                else if (c2 === 2) {
+                    score2 = b;
+                    keepScore2 = keepScore2 + score2;
+                    set2[n2] = set2[n2 - 1] + score2;
+                    totalScore2 = totalScore2 + score2;
+                    current2 = document.querySelector(".currentScore2")
+                    current2.innerHTML = totalScore2;
+                    countScore2 = document.querySelector('.count2');
+                    set2[n2] = +current2.innerHTML + set2[n2 - 1];
+                    console.log(set2, "set2")
+                    set2[n2 + 1] = 0;
+                    if (b == 1 || countScore2.innerHTML != set2[n2] + keepScore2) {
+                        c2 = 2;
+                    }
+                    else if (b != 1) {
+                        c2 = 3;
+                    }
+
+                }
+                else if (c2 > 2) {
+                    score2 = b;
+                    keepScore2 = keepScore2 + score2;
+                    set2[n2] = set2[n2 - 1] + score2;
+                    totalScore2 = totalScore2 + score2;
+                    current2 = document.querySelector(".currentScore2")
+                    current2.innerHTML = totalScore2;
+                    countScore2 = document.querySelector('.count2');
+                    set2[n2] = +current2.innerHTML + set2[n2 - 1];
+                    console.log(set2, "set2")
+                    if (b == 1 || countScore2.innerHTML != set2[n2] + keepScore2) {
+                        c2 = 3;
+                    }
+                    else if (b != 1) {
+                        c2 = 1;
+                    }
+
+                }
+            }
+            else {
+
+                if (n2 == 0) {
+                    totalScore2 = 0;
+                    score2 = 0;
+                    keepScore2 = 0;
+                    set2[n2] = 0;
+                    current2.innerHTML = 0;
+                    countScore2.innerHTML = set2[n2];
+                }
+                else if (n2 >= 1) {
+
+                    totalScore2 = 0;
+                    keepScore2 = 0;
+                    current2.innerHTML = 0;
+                    set2[n2] = set2[n2 - 1];
+                    countScore2.innerHTML = set2[n2];
+                    console.log(set2, "b = 1")
+                }
+
+                console.log("switchPlayer1")
+            }
+
+        }
+
+        // =============================================================================
+
+        // =============================================================================
+
+        function clickNewGame() {
+
+            console.log('clickNewGame');
+
+
+            roll.innerHTML = 'ROLL DICE PLAYER1';
+
+
+            hold.innerHTML = 'HOLD';
+
+
+            ranClick.innerHTML = 0;
+
+            countScore1.innerHTML = 0;
+            countScore2.innerHTML = 0;
+
+            current1.innerHTML = 0;
+            totalScore1 = 0;
+            keepScore1 = 0;
+            set1 = [];
+            c1 = 0;
+            n1 = 0;
+
+            current2.innerHTML = 0;
+            totalScore2 = 0;
+            keepScore2 = 0;
+            set2 = [];
+            c2 = 0;
+            n2 = 0;
+
+            let hide = document.querySelector('.win');
+            hide.innerHTML = "";
+
+            document.getElementById("Roll").style.display = 'block';
+            document.getElementById("Hold").style.display = 'block';
+
+        }
+
+    </script>
+
+</body>
+
+</html>

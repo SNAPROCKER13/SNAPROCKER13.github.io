@@ -1,0 +1,192 @@
+body{
+   background-color: cyan;
+}
+
+.contrainer {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.boxLeft {
+   background-color: coral;
+   width: 500px;
+   height: 500px;
+}
+
+.boxCenter {
+    background-color: white;
+    width: 500px;
+    height: 500px;
+}
+
+.boxRight {
+    background-color: coral;
+    width: 500px;
+    height: 500px;
+}
+
+.player1{
+    margin-left: 160px;
+    color: white;
+    font-size: 50px;
+}
+
+.score1{
+    margin-left: 180px;
+    color: black;
+    font-size: 50px;
+}
+
+.count1{
+    margin-left: 200px;
+    color: black;
+    font-size: 75px;
+}
+
+.player2{
+    margin-left: 170px;
+    color: white;
+    font-size: 50px;
+}
+
+.score2{
+    margin-left: 200px;
+    color: black;
+    font-size: 50px;
+}
+
+.count2{
+    margin-left: 220px;
+    color: black;
+    font-size: 75px;
+}
+
+.ran{
+    margin-left: 235px;
+    margin-top: 210px;
+    color: red;
+    font-size: 75px;
+}
+
+.boxcur1{
+    display: flex;
+    align-items: center;
+    background-color: deeppink;
+
+}
+
+.boxcur2{
+    display: flex;
+    align-items: center;
+    background-color: deeppink;
+}
+
+.currentScore1 {
+    font-size: 50px;
+    margin-left: 10px;
+}
+
+.currentScore2{
+    font-size: 50px;
+    margin-left: 10px;
+}
+
+.text1{
+    font-size: 50px;
+    margin-left: 150px;
+}
+
+.text2{
+    font-size: 50px;
+    margin-left: 150px;
+}
+
+.endGame{
+    display: flex;
+    justify-content: center;
+}
+
+.win{
+    display: flex;
+    font-size: 50px;
+    color: green;
+}
+
+/* ============================================== */
+
+footer{
+    display: flex;
+    justify-content: center;
+}
+
+/* ============================================== */
+
+.totalButton{
+    display: flex;
+    flex-direction: column;
+    margin: 100px;
+   
+}
+
+#Roll {
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    outline: none;
+}
+
+#Hold {
+    width: 100px;
+    height: 50px;
+    margin-top: 50px;
+    margin-left: 50px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    outline: none;
+}
+
+#NewGame{
+    width: 200px;
+    height: 50px;
+    margin-top: 50px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    outline: none;
+}
+
+/* ============================================== */
+
+#Roll:hover {
+    background-color: white;
+}
+
+#Hold:hover {
+    background-color: white;
+}
+
+#NewGame:hover {
+    background-color: white;
+}
+
+#Roll:active {
+    background-color: white;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+#Hold:active {
+    background-color: white;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+#NewGame:active {
+    background-color: white;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
