@@ -125,13 +125,13 @@ body {
 
 @media only screen and (max-width: 768px) {
   .about-page{
-    height: 325vh;
+    height: 350vh;
   }
   .about-me{
     display: flex;
     flex-direction: column;
   }
   .box-rigth{
-    margin-top: 250px;
+    margin-top: 325px;
   }
 }
