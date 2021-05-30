@@ -2,6 +2,11 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+}
+
 .me {
   width: 100px;
   object-fit: cover;
@@ -47,12 +52,15 @@ html {
 }
 
 .box-left {
+  display:block
   width: 50%;
-  height: 94vh;
+  height: 100vh;
 }
 
 .box-rigth {
+  display: block;
   width: 50%;
+  height: 100vh;
 }
 
 .dropdown-btn {
@@ -102,15 +110,28 @@ html {
   flex-direction: column;
 }
 
-.btn-top{
+.btn-top {
   width: 50px;
   height: 50px;
 }
 
-.foot{
+.foot {
   background-color: black;
   display: flex;
-  align-items:flex-end;
+  align-items: flex-end;
   flex-direction: row;
   justify-content: flex-end;
+}
+
+@media only screen and (max-width: 768px) {
+  .about-page{
+    height: 325vh;
+  }
+  .about-me{
+    display: flex;
+    flex-direction: column;
+  }
+  .box-rigth{
+    margin-top: 250px;
+  }
 }
