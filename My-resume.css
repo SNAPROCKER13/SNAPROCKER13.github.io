@@ -118,7 +118,23 @@ html {
   justify-content: flex-end;
 }
 
-@media only screen and (max-width: 414px) {
+
+@media screen and (max-width: 1024px) {
+  .about-page{
+    width: 100%;
+    height: 1000px;
+  }
+  .box-left{
+    width: 100%;
+  }
+  .about-me{
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+
+@media screen and (max-width: 414px) {
   .about-page{
     width: 100%;
     height: 350vh;
@@ -135,3 +151,4 @@ html {
     margin-top: 325px;
   }
 }
+
