@@ -1,0 +1,116 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.me {
+  width: 100px;
+  object-fit: cover;
+}
+
+.home {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  color: white;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-page {
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+}
+
+.format-home {
+  display: flex;
+  width: 1000px;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 100px;
+}
+
+.about-me {
+  display: flex;
+  flex-direction: row;
+}
+
+.title-about-me {
+  text-align: center;
+}
+
+.box-left {
+  width: 50%;
+  height: 94vh;
+}
+
+.box-rigth {
+  width: 50%;
+}
+
+.dropdown-btn {
+  position: fixed;
+}
+
+.title-skill {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.skill {
+  display: flex;
+  justify-content: center;
+  width: 500px;
+}
+
+.progress {
+  width: 80%;
+  height: 10px;
+  margin-bottom: 15px;
+}
+
+.contact {
+  text-align: center;
+}
+
+.contact-info {
+  margin-top: 50px;
+}
+
+.lang {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.download {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.btn-top{
+  width: 50px;
+  height: 50px;
+}
+
+.foot{
+  background-color: black;
+  display: flex;
+  align-items:flex-end;
+  flex-direction: row;
+  justify-content: flex-end;
+}
